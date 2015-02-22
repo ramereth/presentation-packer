@@ -3,18 +3,23 @@ Packer
 
 Easily build machines images for multiple platforms with the same configuration
 
+http://packer.io
+
+Lance Albertson - @ramereth - lance@osuosl.org
+
+Oregon State University Open Source Lab
+
 About me
 --------
 
 * Lance Albertson
-* Director, Oregon State University Open Source Lab (OSUOSL)
+* Director, OSU Open Source Lab (OSUOSL)
 
   * Provide infrastructure hosting for FOSS projects
   * Linux Foundation, Python Software Foundation, Drupal, etc
 
 * Ops guy
-* @ramereth
-* lance@osuosl.org
+* http://osuosl.org
 
 So what is Packer?
 ==================
@@ -40,7 +45,7 @@ What problem does Packer solve?
 * One image building tool to rule them all
 * Single configuration to create images across multiple platforms
 
-  * Cloud? Vagrant? Docker?
+  * Cloud? Vagrant? Docker? -- YES!
 
 * Integrates into the cloud/devops model well
 
@@ -48,9 +53,9 @@ Terminology
 ===========
 
 :Templates: JSON files containing the build information
-:Builders: Platform specific building configuration (i.e. EC2)
+:Builders: Platform specific building configuration
 :Provisioners: Tools that install software after the initial OS install
-:Post-processors: Actions to happen after the image has been built (i.e.
+:Post-processors: Actions to happen after the image has been built
 
 Packer Build Steps
 ------------------
@@ -143,7 +148,8 @@ Packer template file for QEMU:
     "builders": [
       {
         "boot_command": [
-          "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7.0/ks-openstack.cfg<enter><wait>"
+          "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7.0/ks-openstack.cfg",
+          "<enter><wait>"
         ],
         "accelerator": "kvm",
         "boot_wait": "10s",
@@ -163,8 +169,7 @@ Packer template file for QEMU:
         "ssh_wait_timeout": "10000s",
         "type": "qemu",
         "vm_name": "packer-centos-7.0-x86_64"
-      }
-    ],
+    }],
 
 How it works
 ------------
@@ -203,6 +208,8 @@ Continued...
 
 Building the Image
 ------------------
+
+.. rst-class:: codeblock-sm
 
 ::
 
@@ -287,13 +294,20 @@ Builders
 
   * You must have a unique ``name`` for each build definition
 
+.. csv-table::
+
+  Amazon EC2, Digital Ocean
+  Docker, GCE
+  Openstack, Parallels
+  QEMU (kvm), Virtual Box
+  VMWare
+
 Amazon AMI Builder
 ------------------
 
 amazon-ebs
   Create EBS-backed AMIs by launching a source AMI and re-packaging it into a
-  new AMI after provisioning. If in doubt, use this builder, which is the
-  easiest to get started with.
+  new AMI after provisioning.
 
 amazon-instance
   Create instance-store AMIs by launching and provisioning a source instance,
@@ -301,8 +315,7 @@ amazon-instance
 
 amazon-chroot
   Create EBS-backed AMIs from an existing EC2 instance by mounting the root
-  device and using a Chroot environment to provision that device. This is an
-  advanced builder and should not be used by newcomers.
+  device and using a Chroot environment to provision that device.
 
 Docker Builder
 --------------
@@ -365,8 +378,18 @@ https://github.com/chef/bento
 * Great place to see how to see Packer examples
 * Checkout our fork: https://github.com/osuosl/bento/
 
-Jenkins Packer
---------------
+  * QEMU Openstack builders for Ubuntu/Debian, CentOS/Fedora
 
 Demo time!
 ----------
+
+Questions?
+==========
+
+http://packer.io
+
+Lance Albertson - @ramereth - lance@osuosl.org
+
+Oregon State University Open Source Lab
+
+http://osuosl.org
