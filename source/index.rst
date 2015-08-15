@@ -9,6 +9,12 @@ Lance Albertson - @ramereth - lance@osuosl.org
 
 Oregon State University Open Source Lab
 
+.. toctree::
+  :maxdepth: 2
+  :hidden:
+
+  lightning-talk
+
 About me
 --------
 
