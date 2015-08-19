@@ -13,6 +13,7 @@ Oregon State University Open Source Lab
   :maxdepth: 2
   :hidden:
 
+  scale12x
   lightning-talk
 
 About me
@@ -176,6 +177,7 @@ Packer template file for QEMU:
         "type": "qemu",
         "vm_name": "packer-centos-7.0-x86_64"
     }],
+  }
 
 How it works
 ------------
@@ -345,7 +347,16 @@ Provisioners
   Chef Solo, Run a Chef solo run by pointing to local cookbooks or uploading them
   Puppet Masterless, Run local manifests and modules
   Puppet Server, Connect to a puppet server and run puppet
+
+Provisioners
+-------------
+
+.. csv-table::
+  :widths: 30,50
+
   Salt, "Using Salt states, deploy a vm using Salt"
+  PowerShell, "runs PowerShell scripts on Windows machines"
+  Windows Shell, "runs scripts using cmd on Windows Machines"
 
 Post-processors
 ---------------
@@ -353,6 +364,8 @@ Post-processors
 .. csv-table::
   :widths: 20, 50
 
+  Artifice, Overrides the artifact list from an upstream builder or post-processor
+  Atlas, Uploads artifacts from your packer builds to Atlas for hosting
   compress, Compress VMWare or Virtualbox image using gzip
   docker-import, Imports the docker image locally
   docker-push, Push image to the docker repository
@@ -384,7 +397,16 @@ https://github.com/chef/bento
 * Great place to see how to see Packer examples
 * Checkout our fork: https://github.com/osuosl/bento/
 
-  * QEMU Openstack builders for Ubuntu/Debian, CentOS/Fedora
+  * QEMU Openstack/Ganeti builders for Ubuntu/Debian, CentOS/Fedora
+
+Packer Windows
+---------------
+https://github.com/joefitzgerald/packer-windows
+
+* Set of packer templates just for building Windows-based images
+* Works out of the box easily!
+* Highly configurable
+* Install Cloudbase and instant OpenStack image!
 
 Demo time!
 ----------
