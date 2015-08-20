@@ -9,6 +9,8 @@ Lance Albertson - @ramereth - lance@osuosl.org
 
 Oregon State University Open Source Lab
 
+*Attribution-ShareAlike CC BY-SA ©2015*
+
 .. toctree::
   :maxdepth: 2
   :hidden:
@@ -421,3 +423,5 @@ Lance Albertson - @ramereth - lance@osuosl.org
 Oregon State University Open Source Lab
 
 http://osuosl.org
+
+*Attribution-ShareAlike CC BY-SA ©2015*
